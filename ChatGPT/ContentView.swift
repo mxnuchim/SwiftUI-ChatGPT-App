@@ -13,6 +13,8 @@ struct ContentView: View {
     @State var message: String = ""
     let openAIService = OpenAIService()
     
+    @State var lastMessageID: String = ""
+    
     ///- Dark mode/Light mode variable
     @Environment(\.colorScheme) var colorScheme
     
@@ -20,13 +22,28 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            ScrollView(.vertical, showsIndicators: false) {
-                LazyVStack {
-                    ForEach(chatMessages, id: \.id) { message in
-                        MessageView(message: message)
+            HStack {
+                Text("SwiftUI ChatGPT")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Spacer()
+            }
+            
+            ScrollViewReader { proxy in
+                ScrollView(.vertical, showsIndicators: false) {
+                    LazyVStack {
+                        ForEach(chatMessages, id: \.id) { message in
+                            MessageView(message: message)
+                        }
+                    }
+                }
+                .onChange(of: self.lastMessageID) { id in
+                    withAnimation{
+                        proxy.scrollTo(id, anchor: .bottom)
                     }
                 }
             }
+            
             HStack {
                 TextField("Enter a message", text: $message) {}
                     .padding()
@@ -37,7 +54,7 @@ struct ContentView: View {
                 } label: {
                     Image(systemName: "arrow.right.circle.fill")
                         .foregroundColor(.blue)
-                        .padding()
+                        .padding(.horizontal, 5)
                         .font(.largeTitle)
                         .fontWeight(.semibold)
                         
@@ -46,12 +63,13 @@ struct ContentView: View {
         }
         .padding()
     }
-    
+        
     func sendMessage (){
         guard message != "" else {return}
         
         let myMessage = ChatMessage(id: UUID().uuidString, content: message, createdAt: Date(), sender: .me)
         chatMessages.append(myMessage)
+        lastMessageID = myMessage.id
         
         openAIService.sendMessage(message: message).sink { completion in
             /// - Handle Error here
@@ -60,6 +78,7 @@ struct ContentView: View {
             let chatGPTMessage = ChatMessage(id: response.id, content: textResponse, createdAt: Date(), sender: .chatGPT)
             
             chatMessages.append(chatGPTMessage)
+            lastMessageID = chatGPTMessage.id
         }
         .store(in: &cancellables)
             

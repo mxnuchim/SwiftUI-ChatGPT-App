@@ -19,6 +19,8 @@ enum MessageSender {
     case chatGPT
 }
 
+
+
 extension ChatMessage {
     static let sampleMessages = [
         ChatMessage(id: UUID().uuidString, content: "Sample message from me", createdAt: Date(), sender: .me),
