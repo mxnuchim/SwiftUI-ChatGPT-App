@@ -20,6 +20,7 @@
 		7ED14B4A29C1D77500963A76 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED14B4929C1D77500963A76 /* OpenAIService.swift */; };
 		7ED14B4D29C1D8D000963A76 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7ED14B4C29C1D8D000963A76 /* Alamofire */; };
 		7ED14B4F29C1D95A00963A76 /* OpenAICompletionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED14B4E29C1D95A00963A76 /* OpenAICompletionsModel.swift */; };
+		7ED14B5129C20F4400963A76 /* LoadingDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED14B5029C20F4400963A76 /* LoadingDots.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		7ED14B4529C1D71300963A76 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7ED14B4929C1D77500963A76 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
 		7ED14B4E29C1D95A00963A76 /* OpenAICompletionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAICompletionsModel.swift; sourceTree = "<group>"; };
+		7ED14B5029C20F4400963A76 /* LoadingDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingDots.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				7ED14B4929C1D77500963A76 /* OpenAIService.swift */,
 				7ED14B1A29C1C7A900963A76 /* Assets.xcassets */,
 				7ED14B1C29C1C7A900963A76 /* Preview Content */,
+				7ED14B5029C20F4400963A76 /* LoadingDots.swift */,
 			);
 			path = ChatGPT;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				7ED14B4429C1D3E800963A76 /* MessageView.swift in Sources */,
 				7ED14B4F29C1D95A00963A76 /* OpenAICompletionsModel.swift in Sources */,
 				7ED14B1929C1C7A800963A76 /* ContentView.swift in Sources */,
+				7ED14B5129C20F4400963A76 /* LoadingDots.swift in Sources */,
 				7ED14B1729C1C7A800963A76 /* ChatGPTApp.swift in Sources */,
 				7ED14B4229C1C90900963A76 /* ChatMessageModel.swift in Sources */,
 				7ED14B4A29C1D77500963A76 /* OpenAIService.swift in Sources */,

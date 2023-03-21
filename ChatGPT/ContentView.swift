@@ -12,6 +12,7 @@ struct ContentView: View {
     @State var chatMessages: [ChatMessage] = []
     @State var message: String = ""
     let openAIService = OpenAIService()
+    var isLoading: Bool = OpenAIService().isLoading
     
     @State var lastMessageID: String = ""
     
